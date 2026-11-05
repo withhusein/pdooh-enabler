@@ -10,10 +10,10 @@ export async function createClient() {
     {
       cookies: {
         getAll: () => store.getAll(),
-        setAll(list) {
-          try {
-            list.forEach(({ name, value, options }) => store.set(name, value, options));
-          } catch {
+        setAll(list: any) {
+  try {
+    list.forEach(({ name, value, options }: any) => store.set(name, value, options));
+  } catch {
             // Called from a Server Component: middleware refreshes the session instead.
           }
         },
